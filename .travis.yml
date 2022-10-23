@@ -15,7 +15,7 @@ after_success:
   - docker build -t avivkr/muilti-server ./server
   - docker build -t avivkr/multi-worker ./worker
   # Login to he Docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
   - docker push avivkr/multi-client
   - docker push avivkr/multi-nginx
