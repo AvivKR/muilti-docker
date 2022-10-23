@@ -14,3 +14,11 @@ after_success:
   - docker build -t AvivKR/multi-nginx ./nginx
   - docker build -t AvivKR/muilti-server ./server
   - docker build -t AvivKR/multi-worker ./worker
+  # Login to he Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  # Take those images and push them to Docker Hub
+  - docker push AvivKR/multi-client
+  - docker push AvivKR/multi-nginx
+  - docker push AvivKR/muilti-server
+  - docker push AvivKR/multi-worker
+
