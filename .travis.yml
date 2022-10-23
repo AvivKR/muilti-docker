@@ -4,21 +4,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t AvivKR/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t avivkr/react-test -f ./client/Dockerfile.dev ./client
 
 scripts:
-  - docker run -e CI=true AvivKR/react-test npm test -- --coverage
+  - docker run -e CI=true avivkr/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t AvivKR/multi-client ./client
-  - docker build -t AvivKR/multi-nginx ./nginx
-  - docker build -t AvivKR/muilti-server ./server
-  - docker build -t AvivKR/multi-worker ./worker
+  - docker build -t avivkr/multi-client ./client
+  - docker build -t avivkr/multi-nginx ./nginx
+  - docker build -t avivkr/muilti-server ./server
+  - docker build -t avivkr/multi-worker ./worker
   # Login to he Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
-  - docker push AvivKR/multi-client
-  - docker push AvivKR/multi-nginx
-  - docker push AvivKR/muilti-server
-  - docker push AvivKR/multi-worker
+  - docker push avivkr/multi-client
+  - docker push avivkr/multi-nginx
+  - docker push avivkr/muilti-server
+  - docker push avivkr/multi-worker
 
