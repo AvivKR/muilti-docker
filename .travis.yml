@@ -22,3 +22,15 @@ after_success:
   - docker push avivkr/muilti-server
   - docker push avivkr/multi-worker
 
+deploy:
+  provide: elasticbeanstalk
+  region: "ap-northeast-1"
+  app: "muilti-docker"
+  env: "Multidocker-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-1-13989246254"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
