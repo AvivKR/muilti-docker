@@ -30,7 +30,7 @@ deploy:
   bucket_name: "elasticbeanstalk-ap-northeast-1-13989246254"
   bucket_path: "docker-multi"
   on:
-    branch: main
+    branch: master
   access_key_id: $AWS_AccessKEY
   secret_access_key: $AWS_Secret_AccessKEY
 
