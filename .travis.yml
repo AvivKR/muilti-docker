@@ -12,14 +12,14 @@ scripts:
 after_success:
   - docker build -t avivkr/multi-client ./client
   - docker build -t avivkr/multi-nginx ./nginx
-  - docker build -t avivkr/muilti-server ./server
+  - docker build -t avivkr/multi-server ./server
   - docker build -t avivkr/multi-worker ./worker
   # Login to he Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to Docker Hub
   - docker push avivkr/multi-client
   - docker push avivkr/multi-nginx
-  - docker push avivkr/muilti-server
+  - docker push avivkr/multi-server
   - docker push avivkr/multi-worker
 
 deploy:
